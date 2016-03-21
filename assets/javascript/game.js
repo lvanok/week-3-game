@@ -1,7 +1,8 @@
 
 // GLOBAL VARIABLES (Accessible by all functions)
 //array of words =======================================================
-var currentWord = " ";  //solution goes here
+var currentWord = prompt("Choose any letter to start:  ");  //solution goes here
+var possibleWords = ["yoga", "reiki", "wellness"];
 var lettersInCurrentWord = []; //individual letters to be stored in array
 // currentWord.split(""); // the word is broken into individual letters
 var numBlanks = 0;
@@ -12,7 +13,7 @@ console.log(currentWord);  //print for testing will take out after html works
 var userGuess = 0;
 // prompt("Press any letter to start the game  ");
 var wrongGuesses = []; //we reset the wrong guess from previous round - holds wrong answers & gets cleared ea time
-var correctLetters = []; 
+var correctLetter = []; 
 
 var letterInWord = false; // ?this boolean will be toggled based on whether or not a user letter is found anywhere in the word
 // Game counters
@@ -28,6 +29,7 @@ var numGuesses = 0;
 // (Note: It's not being run here. 
 // It's just being made for future use.)
 function startGame() {
+
 	// Reset the guesses back to 0
 	numGuesses = 9;
 	currentWord = possibleWords[Math.floor(Math.random() * possibleWords.length)]; 
@@ -59,20 +61,20 @@ function checkLetters(letter) {
 	// this boolean will be toggled based on whether or not a user letter is found anywhere in the word
 	// then Checks if a letter exists inside the array at all.
 	for (var i=0; i<numBlanks; i++) {
-		if(currentWord[i] == letter) {
+		if(currentWord[i] == letterInWord) {
 			letterInWord = true; 
 			// if the letter exists then toggle this boolean to true. This will be used in the next step. 
  		}
 	}
-// 	// If the letter exists somewhere in the word, then figure out exactly where (which indices)
+	}
+ 	// If the letter exists somewhere in the word, then figure out exactly where (which indices)
 	if (letterInWord = true) {
-// 		// loop through the word 
-		for (var i=0; i<numBlanks; i++){
-// 			// Populate the blanksAndSuccesses with every instance of the letter.
-			If(currentWord[i] == letter) {
+ 		// loop through the word 
+		for (var i=0; i<numBlanks; i++) {
+ 			// Populate the blanksAndSuccesses with every instance of the letter.
+			If(currentWord[i] == letter) 
 				blanksAndSuccesses[i] = letter; 
-				// here we set the specific space in blanks and letter equal to the letter when there is a match.
-			}
+			// here we set the specific space in blanks and letter equal to the letter when there is a match.
 		}
 		console.log(blanksAndSuccesses); // logging for testing
 	}
